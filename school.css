@@ -1,0 +1,266 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    
+}
+li{
+    list-style: none;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    z-index: 77;
+}
+.container{
+    position: relative;
+    width: 1160px;
+}
+
+
+.carousel,
+.carousel>img{
+    width: 100%;
+    height: 740px;
+    position: relative;
+    
+}
+.carousel>img{
+    position: absolute;
+    display: none;
+}
+@keyframes mymove{
+    from{top: 550px;}
+    to{top:600px}
+}
+.carousel>.down{
+    display: block;
+    width: 80px;
+    height:80px;
+    position: absolute;
+    left:550px;
+    top:550px;
+    z-index: 55;
+    animation: mymove 2s linear infinite;
+}
+.carousel>.down>img{
+    width: 80px;
+    height:80px;
+}
+.carousel>ul{
+    position: absolute;
+    z-index: 99;
+    bottom:30px;
+    left:530px;
+}
+.carousel>ul>li{
+    float: left;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: white;
+    margin:0 10px;
+}
+/* carousel结束 */
+
+.header{
+    width: 100%;
+    height: 740px;
+    background: #FFD600;
+    border:1px  solid white;
+    position: relative;
+}
+/*正六边形就是由3个长方形拼成的*/   
+.flower{
+    width:768px; 
+    margin-top:50px;
+} 
+.six,.b,.c{
+    width: 207.846px;/*我们先来定正六边形的边长，定了它就可以算长方形的另一个边长了*/
+    height:120px ;/*这个边的长度是根号3乘以width*/
+    background:rgb(255, 255, 255);
+}
+/*你可以互换一下宽高的值，可以发现这时候角在上*/
+.six{
+    margin:40px 15px;
+    float: left;
+    position: relative;
+}
+.six:nth-child(4){
+    margin-left: 135px;
+}
+.six:last-child{
+    margin-left: 255px;
+}
+.b{
+    transform: rotate(-60deg);/*长方形以它的中心b旋转60度*/
+}
+.c{
+    transform: rotate(120deg);/*长方形c以它的中间旋转120度*/
+}
+/*到这里就可以拼出个正六边形了，正六边形就是由3个长方形拼成的，注意，这个时候叠加在最上面的是c*/
+.six:hover,
+.six:hover >.b,
+.six:hover >.b>.c{
+    background:goldenrod;/*指针指到a,b,c上会变同一个色*/
+    transform: scale(1.2);/*指针指到a,b,c上会以中心开始向外扩大，你可以试试transform: scale(1.2，2).效果不一样了，里面的参数一个是x轴，一个y轴的。只写一个表示他们参数一样*/
+} 
+.six:hover >.b{
+    transform: scale(1.2);/*为什么这里还要写，和上面重复了呀?因为上面的效果会发现，所有的长方形都重叠在一起，旋转角度不见了，只有一个长方形效果。因为transform: scale出现在上面设置好的transform: rotate后，系统不执行上面执行下面了。*/
+    transform: rotate(-60deg);/*为了让角度还在，就改下顺序，放大但是还执行角度变换*/
+}
+.six:hover >.b>.c{
+    transform: scale(1.2);
+    transform: rotate(120deg);
+}/*这里原因同c盒子一样*/
+a{
+    font-size: 80px;
+    top:10px;
+    left:25px;
+}
+a:hover{
+    color: white;
+}
+p{
+    font:bold 80px Comic Sans MS;
+    color: white;
+    text-shadow:5px 5px 5px black;
+    position: absolute;
+    bottom: 0;
+    left: 400px;
+}
+/* header结束 */
+
+.content{
+    width: 100%;
+    height:2200px;
+    background-image:url(bg.jpg);
+    position: relative;
+}
+
+.content li img{
+    width:150px;
+    
+}
+.content ul{
+    position: absolute;
+    z-index: 99;
+}
+.content>ul>li{
+    float: left;
+    margin:10px 10px;
+    width:200px;
+    height:200px;
+    text-align: center;
+}
+.register{
+    top:140px;
+    width:700px;
+}
+.lift{
+    top:900px;
+    width:1000px;
+}
+.study{
+    top:1500px;
+    right:50px;
+    width:700px;
+}
+
+.text>li{
+    width:200px;
+    height:200px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 30px;
+    box-sizing: border-box;
+    padding:15px;
+    border-radius: 10px;
+    opacity: 0;
+    
+}
+.text>li:hover{
+    opacity: 1;
+    
+}
+.content>div>img{
+    width: 300px;
+    position: absolute;
+}
+.content>div>a{
+    color: rgb(184, 17, 17);
+    font-size: 50px;
+}
+.content>div>img:first-child{
+    top:250px;
+    left:600px;
+    color: white;
+    font-size: 30px;
+}
+.content>div>a:nth-child(2){
+    top:300px;
+    left:680px;
+}
+.content>div>img:nth-child(3){
+    top:1000px;
+    left:750px;
+}
+.content>div>a:nth-child(4){
+    top:1050px;
+    left:840px;
+    z-index: 99;
+}
+.content>div>img:nth-child(5){
+    top:1600px;
+    left:150px;
+}
+.content>div>:last-child{
+    top:1650px;
+    left:250px;
+}
+@keyframes move{
+    0%{top:0;left:430px;}
+    10%{top:0;left:915px;}
+    20%{top:580px;left:915px}
+    35%{top:580px;left:35px;}
+    38%{top:780px;left:35px;}
+    52%{top:780px;left:1020px}
+    60%{top:1340px;left:1020px}
+    75%{top:1340px;left:40px}
+    85%{top:2010px;left:40px}
+    95%{top:2010px;left:540px}
+    100%{top:2110px;left:540px}
+}
+#student{
+    width:120px;
+    height:120px;
+    position: absolute;
+    left:430px;
+    cursor: pointer;
+    animation:move 30s linear normal  infinite;
+    animation-play-state: paused;
+}
+
+
+/* content结束 */
+
+.footer{
+    width: 100%;
+    height:270px;
+    background: url(5.jpg);
+    position: relative;
+    border-top:1px solid white;
+}
+.footer>p{
+    font:bold 80px Comic Sans MS;
+    color: black;
+    text-shadow:5px 5px 5px white;
+    position: absolute;
+    left:450px;
+    top:0;       
+}
+.footer>p:last-child{
+    top:220px;
+    font-size: 25px;
+}
